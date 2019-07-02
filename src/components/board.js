@@ -221,19 +221,19 @@ class Board extends React.Component {
     // going upperleft
     while(
       this.state.grids[startRow] &&
-      this.state.grids[startColumn]
+      this.state.grids[startRow][startColumn] !== undefined
     ){
       set.unshift(this.state.grids[startRow][startColumn]);
       startColumn--;
       startRow--;
     }
 
-    // going lower left
+    // going lower right
     startRow = coordinates.row + 1;
     startColumn = coordinates.column + 1;
     while(
       this.state.grids[startRow] &&
-      this.state.grids[startRow][startColumn]
+      this.state.grids[startRow][startColumn] !== undefined
     ){
       set.push(this.state.grids[startRow][startColumn]);
       startColumn++;
@@ -248,19 +248,20 @@ class Board extends React.Component {
     set = [];
     while(
       this.state.grids[startRow] &&
-      this.state.grids[startColumn]
+      this.state.grids[startRow][startColumn] !== undefined
     ){
       set.push(this.state.grids[startRow][startColumn]);
       startColumn++;
       startRow--;
+      // console.log(this.state.grids[startRow][startColumn])
     }
-
+    
     // going lower left
-    startRow = coordinates.row;
-    startColumn = coordinates.column;
+    startRow = coordinates.row +1;
+    startColumn = coordinates.column -1;
     while(
       this.state.grids[startRow] &&
-      this.state.grids[startRow][startColumn]
+      this.state.grids[startRow][startColumn] !== undefined
     ){
       set.unshift(this.state.grids[startRow][startColumn]);
       startColumn--;
@@ -269,7 +270,6 @@ class Board extends React.Component {
     // add the diagonal (lower left to upper right) to the list of
     // sets to check for winning combos
     sets.push(set);
-
     // check all the combinations if any of them are winning combos
     for(let setIndex = 0; setIndex < sets.length; setIndex++) {
       let _set = sets[setIndex].slice();
