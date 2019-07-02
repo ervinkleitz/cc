@@ -1,23 +1,39 @@
+.board {
+  background: yellow;
+  padding-top:10px;
+  width: 350px;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px grey;
+  margin: 2px auto;
+  /* width: 50%; */
+}
+
 .grid {
-  margin-top:-3px;
+  margin:1px 2px 1px 2px;
   display: inline-block;
   height: 40px;
   width: 40px;
-  background: lightgray;
+  background: white;
+  border-radius: 50%;
   border: 1px solid white;
   cursor: pointer;
+  border: 1px solid lightgrey;
+  box-shadow: 1px -1px grey;
 }
 
 .grid:hover {
-  background: lightyellow;
+  background: yellow;
+  /* box-shadow: 1px -1px grey; */
 }
 
 .red, .red:hover {
   border-radius: 50%;
   background: red;
+  /* box-shadow: 1px -1px red; */
 }
 
 .black, .black:hover {
   border-radius: 50%;
   background: black;
+  /* box-shadow: 1px -1px; */
 }
